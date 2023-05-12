@@ -1,0 +1,30 @@
+<div class="container" >
+    <form *ngIf="list.length>0" class="">
+      <div *ngFor="let l of lists">
+        <div class="mb-3"><h1>Advanced Configuration</h1></div>
+        <div class="row border border-1 rounded mb-3">
+          <div class="col-md-6 p-3">
+            <label><b>Default Value</b></label>
+            <input type="number" class="form-control" placeholder="Enter the Default value">
+          </div>
+          <div class="col-md-6 p-3">
+            <label><b>Values</b></label>
+            <input type="text" class="form-control" placeholder="Enter the possible Values separated by commas">
+          </div>
+        </div>
+        <div class="mb-3"><h1 class="p-3 mt-2">Filters</h1></div>
+        <div class="row border border-1 rounded">
+          <div class="col-md-6 p-3">
+            <label><b>Applies To</b></label>
+            <input type="text" class="form-control" placeholder="Enter the Element types this property can be applied to">
+          </div>
+          <div class="col-md-6 p-3">
+            <label><b>Base Stereotype</b></label>
+            <input type="text" class="form-control" placeholder="Enter the Stereotypes this property can be applied to">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+

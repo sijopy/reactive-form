@@ -1,0 +1,25 @@
+<form [formGroup]="registerForm" (ngSubmit)="registerFn()">
+    <div>
+      <label><b>Name*</b></label>
+      <input type="text" placeholder="Enter Name" formControlName="Name">
+      <div *ngIf="getControl('Name')?.errors?.['required'] && getControl('Name')?.touched" style="color:red">Name is required</div>
+      <div *ngIf="getControl('Name')?.errors?.['maxlength'] && getControl('Name')?.touched" style="color:red">Name must be less than 32 characters</div>
+    </div>
+    <div>
+      <label><b>Type*</b></label>
+      <select class="form-select" formControlName="Select">
+        <option disabled selected>Select</option>
+        <option>Date</option>
+        <option>Boolean</option>
+        <option>Color</option>
+        <option>Directory</option>
+        <option>Enum</option>
+        <option>File</option>
+        <option>Const</option>
+      </select>
+      <div *ngIf="getControl('Select')?.errors?.['required'] && getControl('Select')?.touched" style="color:red">Selection is required</div>
+    </div>
+    <button type="submit">Save</button>
+  </form>
+  
+  

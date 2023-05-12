@@ -1,0 +1,49 @@
+select option {
+    
+    color: rgb(128, 125, 134) !important;
+  }
+
+
+h2{
+  font-family: Microsoft Yi Baiti;
+  font-size: 
+  x-large;
+}
+
+body{
+  filter: brightness(126%);
+}
+
+.error{
+  border: 1px solid red;
+}
+.input:focus{
+  border-color: rgb(22, 206, 74);
+  height: 35px;
+  outline: none;
+}
+
+
+.btn-primary.btn-sm:active svg path:first-child {
+  transform: translateY(3px);
+}
+.rotate-icon {
+  animation: rotate 1s linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
+
+

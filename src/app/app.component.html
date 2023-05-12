@@ -1,0 +1,68 @@
+<div class="container text-secondary">
+  <h2>Configuration</h2>
+</div>
+<div class="container">
+  <form class="row border border-1 rounded"   #myForm="ngForm" [formGroup]="registerForm" (ngSubmit)="registerForm.status !='INVALID'">
+    <div class="col-sm-6 py-3 px-4">
+      <div class="mb-3">
+        <label><b>Name*</b></label>
+        <input  type="text" class="form-control border-1 rounded-2 w-100 " placeholder="{{inputtext}}" formControlName="Name"
+          [ngClass]="{error: getControl('Name')?.errors && getControl('Name')?.touched}">
+        <div *ngIf="getControl('Name')?.errors && getControl('Name')?.touched">
+          <small class="text-danger" *ngIf="getControl('Name')?.errors?.['required']">Field is required</small>
+          <small class="text-danger" *ngIf="getControl('Name')?.errors?.['maxlength']">only 5 characters allowed</small>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label><b>Type*</b></label>
+        <select class="form-select w-100" #list (change)="name=list.value" formControlName="select"
+          [ngClass]="{error: getControl('select')?.errors && getControl('select')?.touched}">
+         
+          <option disabled value="">Select</option>
+          <option>Date</option>
+          <option>Boolean</option>
+          <option>Color</option>
+          <option>Directory</option>
+          <option>Enum</option>
+          <option>File</option>
+          <option>Const</option>
+        </select>
+        <div *ngIf="registerForm.controls.select.touched && registerForm.controls.select.errors">
+          <span *ngIf="registerForm.controls.select.errors?.['required']" style="color: rgb(237, 81, 81);"> Type is required</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 py-3 px-4">
+      <div class="mb-3">
+        <label><b>Description</b></label>
+        <textarea class="form-control w-100" id="exampleFormControlTextarea1" rows="4"></textarea>
+      </div>
+    </div>
+    
+  </form>
+
+  <!-- <app-select  [listname]="name" (cancelClicked)="onCancel()"></app-select> -->
+  <app-boolean [listname]="name" *ngIf="secondchild"></app-boolean>
+  <app-select  [listname]="name" *ngIf="showChild"></app-select>
+  <!-- <app-eaxamole></app-eaxamole> -->
+  <!-- <app-angular-material></app-angular-material> -->
+  <div class=" mt-3 mb-2 text-end">
+    <button type="reset" class="btn btn-outline-primary btn-sm me-3" (click)="cancel()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-x rotate-icon" viewBox="0 0 16 16">
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+      Cancel
+    </button>
+    
+    <button type="submit" class="btn btn-primary btn-sm" (click)="onSubmit()" [disabled]="registerForm.status=== 'INVALID'"><svg
+        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-file-earmark-arrow-up" viewBox="0 0 16 16">
+        <path d="M8.5 11.5a.5.5 0 0 1-1 0V7.707L6.354 8.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 7.707V11.5z" style="transition: transform 0.2s ease-in-out;" />
+
+        <path
+          d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
+      </svg>Save</button>
+  </div>
+ 
+</div>
+
